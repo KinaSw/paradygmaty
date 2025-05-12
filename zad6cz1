@@ -1,0 +1,28 @@
+//Zapoznaj się ze sposobami działania na tablicach: https://kursjs.pl/kurs/super-podstawy/tablice. 
+//Stwórz funkcję random(max), która będzie zwracać losową liczbę z zakresu 0 - max. 
+//Wykorzystaj tą funkcję do wygenerowania 20-elementowej tablicy. Posortuj tą tablicę, a następnie wypisz sumę oraz średnią wszystkich liczb z tej tablicy.
+
+// Funkcja generująca losową liczbę całkowitą z zakresu 0 - max (włącznie)
+function random(max) {
+return Math.floor(Math.random() * (max + 1));
+}
+
+// Generowanie 20-elementowej tablicy losowych liczb z zakresu 0 - 100
+const array = [];
+for (let i = 0; i < 20; i++) {
+array.push(random(100));
+}
+
+// Sortowanie tablicy rosnąco
+array.sort((a, b) => a - b);
+
+// Obliczenie sumy
+const sum = array.reduce((acc, val) => acc + val, 0);
+
+// Obliczenie średniej
+const average = sum / array.length;
+
+// Wyświetlenie wyników
+console.log("Posortowana tablica:", array);
+console.log("Suma:", sum);
+console.log("Średnia:", average.toFixed(2));
