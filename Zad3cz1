@@ -1,0 +1,24 @@
+// Zapoznaj się ze sposobami konstruowania funkcji: https://kursjs.pl/kurs/super-podstawy/funkcje. 
+//Napisz funkcję `printNumbers(nr)`, która wymagać będzie liczby. Funkcja powinna zwrócić tekst,
+//który będzie składał się z kolejnych liczb.
+
+function printNumbers(nr) {
+// Sprawdzenie, czy nr jest liczbą całkowitą większą od zera
+if (typeof nr !== 'number' || !Number.isInteger(nr) || nr < 1) {
+return 'Podaj liczbę całkowitą większą od zera.';
+}
+
+const numbers = [];
+
+for (let i = 1; i <= nr; i++) {
+numbers.push(i);
+}
+
+return numbers.join(' ');
+}
+
+// Przykładowe użycie:
+console.log(printNumbers(5)); // "1 2 3 4 5"
+console.log(printNumbers(10)); // "1 2 3 4 5 6 7 8 9 10"
+console.log(printNumbers(0)); // "Podaj liczbę całkowitą większą od zera."
+console.log(printNumbers('abc')); // "Podaj liczbę całkowitą większą od zera."
