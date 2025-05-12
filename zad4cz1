@@ -1,0 +1,29 @@
+//Stwórz funkcję generateRandom(min, max), która będzie przyjmować dwie wartości - min i max. Funkcja powinna zwrócić losową liczbę z podanego przedziału. 
+//Do generowania losowej liczby możesz użyć wzoru Math.floor(Math.random()*(max-min+1)+min).
+//Wykorzystaj ją do utworzenia 10 liczb z przedziału 1 - 20. Jeżeli połowa z nich będzie większa od 10, wypisz tekst udało się, w przeciwnym razie wypisz w konsoli tekst niestety nie.
+
+function generateRandom(min, max) {
+return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+function checkRandomResults() {
+const results = [];
+let countAbove10 = 0;
+
+for (let i = 0; i < 10; i++) {
+const num = generateRandom(1, 20);
+results.push(num);
+if (num > 10) countAbove10++;
+}
+
+console.log("Wylosowane liczby:", results.join(', '));
+
+if (countAbove10 >= 6) {
+console.log("udało się");
+} else {
+console.log("niestety nie");
+}
+}
+
+// Uruchomienie funkcji
+checkRandomResults();
