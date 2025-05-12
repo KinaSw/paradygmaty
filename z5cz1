@@ -1,0 +1,16 @@
+//Zapoznaj się ze sposobami przetwarzania napisów: https://kursjs.pl/kurs/super-podstawy/string. 
+//Napisz funkcję checkPalindrom(txt), która zwróci true/false w zależności od tego, czy przekazane słowo jest palindromem.
+
+function checkPalindrom(txt) {
+// Normalizacja: usunięcie znaków niealfanumerycznych i konwersja na małe litery
+const normalized = txt.toLowerCase().replace(/[^a-z0-9]/g, '');
+// Odwrócenie znormalizowanego tekstu
+const reversed = normalized.split('').reverse().join('');
+// Porównanie znormalizowanego tekstu z jego odwróconą wersją
+return normalized === reversed;
+}
+
+// Przykładowe użycie:
+console.log(checkPalindrom("kajak")); // true
+console.log(checkPalindrom("Kobyła ma mały bok")); // true
+console.log(checkPalindrom("JavaScript")); // false
