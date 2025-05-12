@@ -1,0 +1,42 @@
+// Cyfry rzymskie są reprezentowane przez siedem różnych symboli: I, V, X, L, C, D i M. Podając liczbę rzymską, przekonwertuj ją na liczbę całkowitą.
+//Założenia:
+//1 <= s.length <= 15
+//s zawiera wyłącznie znaki ('I', 'V', 'X', 'L', 'C', 'D', 'M').
+//Zakładamy że s jest poprawną liczbą rzymską z zakresu [1, 3999].
+
+function romanToInt(s) {
+const roman = {
+I: 1,
+V: 5,
+X: 10,
+L: 50,
+C: 100,
+D: 500,
+M: 1000
+};
+
+let total = 0;
+
+for (let i = 0; i < s.length; i++) {
+const current = roman[s[i]];
+const next = roman[s[i + 1]];
+
+```
+if (next > current) {
+  total += next - current;
+  i++; // pomiń następny, już użyty
+} else {
+  total += current;
+}
+
+```
+
+}
+
+return total;
+}
+
+// Przykłady
+console.log(romanToInt("III"));      // 3
+console.log(romanToInt("LVIII"));    // 58
+console.log(romanToInt("MCMXCIV"));  // 1994
