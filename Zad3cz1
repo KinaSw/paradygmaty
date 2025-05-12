@@ -2,6 +2,7 @@
 //Napisz funkcję `printNumbers(nr)`, która wymagać będzie liczby. Funkcja powinna zwrócić tekst,
 //który będzie składał się z kolejnych liczb.
 
+
 function printNumbers(nr) {
 // Sprawdzenie, czy nr jest liczbą całkowitą większą od zera
 if (typeof nr !== 'number' || !Number.isInteger(nr) || nr < 1) {
