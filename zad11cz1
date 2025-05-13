@@ -1,0 +1,24 @@
+/*Biorąc pod uwagę ciąg znaków s składającego się ze słów i spacji, napisz funkcję która zwraca długość ostatniego słowa w ciągu. 
+Słowo jest maksymalnym podciągiem składającym się wyłącznie ze znaków innych niż spacje.
+
+Przykład 1:
+Input: s = "Hello World"
+Output: 5
+Przykład 2:
+
+Input: s = "   fly me   to   the moon  "
+Output: 4
+Założenia
+
+1 <= s.length <= 104
+s zawiera tylko znaki angielskiego alfabetu i spacje ' '.
+W s znajduje się co najmniej jedno słowo.*/
+
+function lengthOfLastWord(s) {
+const words = s.trim().split(/\s+/);
+return words[words.length - 1].length;
+}
+
+// Przykłady
+console.log(lengthOfLastWord("Hello World"));                 // 5
+console.log(lengthOfLastWord("   fly me   to   the moon  ")); // 4
