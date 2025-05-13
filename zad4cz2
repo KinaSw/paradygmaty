@@ -1,0 +1,20 @@
+/*Zapoznaj się z informacjami o dziedziczeniu prototypowym w Javascript.
+a) Jak się to ma do działania obiektów i “klas” w Javascript? Dlaczego mówimy, że w Javascript klasy są tzw. “syntax sugar”? Opisz mechanizm własnymi słowami.
+b) Rozbuduj obiekty typu String dodając im metodę mirror(), która po odpaleniu dla tekstu zwróci jego odbicie:
+"Ala ma kota".mirror() === "atok am alA"
+*/
+
+
+let person = {
+greet: function() {
+console.log("Hello!");
+}
+};
+
+let student = Object.create(person);  // student dziedziczy z person
+student.study = function() {
+console.log("Studying...");
+};
+
+student.greet();  // "Hello!" - metoda z prototypu 'person'
+student.study();  // "Studying..." - metoda z 'student'
