@@ -23,3 +23,24 @@ console.log(printNumbers(5)); // "1 2 3 4 5"
 console.log(printNumbers(10)); // "1 2 3 4 5 6 7 8 9 10"
 console.log(printNumbers(0)); // "Podaj liczbę całkowitą większą od zera."
 console.log(printNumbers('abc')); // "Podaj liczbę całkowitą większą od zera."
+
+
+
+//ALTERNATYWNA WERSJA Z WYPISYWANIEM CYFR PODANEJ LICZBY
+function printNumbers(nr) {
+    let text = nr.toString(); // zamieniamy liczbę na tekst
+    let result = '';
+
+    for (let i = 0; i < text.length; i++) {
+        result += text[i];
+        if (i < text.length - 1) {
+            result += ' ';
+        }
+    }
+
+    return result;
+}
+
+// Test:
+console.log(printNumbers(5397)); // "5 3 9 7"
+
