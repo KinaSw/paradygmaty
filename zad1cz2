@@ -1,0 +1,36 @@
+/*Zapoznaj się ze sposobami tworzenia obiektów w Javascript https://kursjs.pl/kurs/obiekty/obiekty. 
+Stwórz obiekt currentUser. Obiekt niech ma właściwości: name, surname, email, www, userType, isActive oraz metodę show(), która wypisze wszystkie te właściwości w konsoli. 
+Dodatkowo stwórz metodę setActive(active), która przestawi właściwość isActive na przekazaną wartość, która może być true/false.*/
+
+
+// Tworzenie obiektu currentUser
+const currentUser = {
+// Właściwości obiektu
+name: "Jan",
+surname: "Kowalski",
+email: "[jan.kowalski@example.com](mailto:jan.kowalski@example.com)",
+www: "[https://jan-kowalski.com](https://jan-kowalski.com/)",
+userType: "admin",
+isActive: true,
+
+// Metoda wyświetlająca wszystkie właściwości obiektu
+show: function() {
+    console.log(`Name: ${this.name}`);
+    console.log(`Surname: ${this.surname}`);
+    console.log(`Email: ${this.email}`);
+    console.log(`Website: ${this.www}`);
+    console.log(`User Type: ${this.userType}`);
+    console.log(`Is Active: ${this.isActive}`);
+},
+
+// Metoda do zmiany wartości isActive
+setActive: function(active) {
+    this.isActive = active;
+}
+
+};
+
+// Przykład użycia
+currentUser.show();  // Wyświetlenie właściwości
+currentUser.setActive(false);  // Zmiana wartości isActive na false
+currentUser.show();  // Ponowne wyświetlenie właściwości po zmianie
