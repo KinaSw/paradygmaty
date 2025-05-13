@@ -1,0 +1,83 @@
+/*Stwórz obiekt o nazwie text. Obiekt ten powinien mieć metody:
+check(txt, word)
+która zwraca true/false jeżeli w tekście txt znajduje się szukane słowo word
+check("ala ma kota", "kota") ---> true
+getCount(txt)
+Zwraca liczbę liter w tekście txt. Uwaga znaki interpunkcyjne też traktujmy jako litery
+getCount("ala ma kota") ---> 11
+getWordsCount(txt)
+zwraca liczbę słów w przekazanym tekście
+getWordsCount("Ala ma kota") ---> 3
+setCapitalize(txt)
+zwraca nowy tekst tak zamieniony, że każde słowo zaczyna się z dużej litery
+setCapitalize("ala ma kota") ---> "Ala Ma Kota"
+setMix(txt)
+zwraca nowy tekst z naprzemiennie dużymi/małymi literami. Spację i znaki interpunkcyjne traktujemy jako litery.
+setMix("ala ma kota") ---> "aLa mA KoTa"
+generateRandom(lng)
+Generuje tekst o długości lng, który składa się z losowych liter
+generateRandom(10) ---> "dkjiuhtjox"
+
+*/
+
+
+const text = {
+// Metoda sprawdzająca, czy w tekście txt znajduje się słowo word
+check: function(txt, word) {
+return txt.includes(word);
+},
+
+// Metoda licząca liczbę liter w tekście txt
+getCount: function(txt) {
+    return txt.length;
+},
+
+// Metoda licząca liczbę słów w tekście txt
+getWordsCount: function(txt) {
+    return txt.split(/\\s+/).filter(Boolean).length;
+},
+
+// Metoda zamieniająca każde słowo na zaczynające się od dużej litery
+setCapitalize: function(txt) {
+    return txt.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+},
+
+// Metoda zamieniająca tekst na naprzemiennie małe i duże litery
+setMix: function(txt) {
+    return txt.split('').map((char, index) =>
+        (index % 2 === 0 ? char.toLowerCase() : char.toUpperCase())
+    ).join('');
+},
+
+// Metoda generująca tekst o losowej długości lng
+generateRandom: function(lng) {
+    const letters = 'abcdefghijklmnopqrstuvwxyz';
+    let randomText = '';
+    for (let i = 0; i < lng; i++) {
+        randomText += letters.charAt(Math.floor(Math.random() * letters.length));
+    }
+    return randomText;
+}
+
+};
+
+// Przykłady użycia:
+
+// Sprawdzenie, czy słowo istnieje w tekście
+console.log(text.check("ala ma kota", "kota"));  // true
+console.log(text.check("ala ma kota", "pies"));  // false
+
+// Liczba liter w tekście
+console.log(text.getCount("ala ma kota"));  // 11
+
+// Liczba słów w tekście
+console.log(text.getWordsCount("Ala ma kota"));  // 3
+
+// Zamiana pierwszej litery każdego słowa na dużą
+console.log(text.setCapitalize("ala ma kota"));  // "Ala Ma Kota"
+
+// Naprzemiennie duże/małe litery
+console.log(text.setMix("ala ma kota"));  // "aLa mA KoTa"
+
+// Generowanie losowego tekstu
+console.log(text.generateRandom(10));  // np. "dkjiuhtjox"
